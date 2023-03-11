@@ -8,3 +8,6 @@ function getRandomPositiveInteger (a, b) {
 function checkStringLength (string, length) {
   return string.length <= length;
 }
+
+getRandomPositiveInteger(1, 3);
+checkStringLength('123', 2);
