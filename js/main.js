@@ -20,12 +20,12 @@ function getPhotos (num) {
       discripiton: discripitons[getRandomPositiveInteger(0, 2)],
       likes: getRandomPositiveInteger(15, 200),
       comments: getRandomPositiveInteger(0, 200)
-    }
+    };
   }
-  return photos
+  return photos;
 }
 
-const ph = getPhotos(25)
+const ph = getPhotos(25);
 // eslint-disable-next-line
 console.log(ph[5])
 
