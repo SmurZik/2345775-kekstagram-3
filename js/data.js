@@ -14,6 +14,6 @@ function getPhotos (num) {
     };
   }
   return photos;
-};
+}
 
 export {getPhotos};
