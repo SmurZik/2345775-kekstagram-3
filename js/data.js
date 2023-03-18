@@ -1,6 +1,6 @@
 import {getRandomPositiveInteger} from './util.js';
 
-const discripitons = ['nice', 'bad', 'good'];
+const DESCRIPTIONS = ['nice', 'bad', 'good'];
 
 function getPhotos (num) {
   const photos = new Array(num);
@@ -8,7 +8,7 @@ function getPhotos (num) {
     photos[i - 1] = {
       id: i,
       url: `photos/${i}.jpg`,
-      discripiton: discripitons[getRandomPositiveInteger(0, 2)],
+      description: DESCRIPTIONS[getRandomPositiveInteger(0, 2)],
       likes: getRandomPositiveInteger(15, 200),
       comments: getRandomPositiveInteger(0, 200)
     };
