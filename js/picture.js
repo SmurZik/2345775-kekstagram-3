@@ -10,6 +10,6 @@ photos.forEach(({url, likes, comments})=>{
   picture.querySelector('.picture__img').src = url;
   picture.querySelector('.picture__likes').textContent = likes;
   picture.querySelector('.picture__comments').textContent = comments;
-  pictureFragment.appendChild(picture)
+  pictureFragment.appendChild(picture);
 });
 pictureList.appendChild(pictureFragment);
