@@ -13,3 +13,4 @@ photos.forEach(({url, likes, comments})=>{
   pictureFragment.appendChild(picture);
 });
 pictureList.appendChild(pictureFragment);
+//Задание 7 часть 2
