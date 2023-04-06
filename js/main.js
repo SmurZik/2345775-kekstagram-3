@@ -1,6 +1,8 @@
 import {getPhotos} from './data.js';
 import {checkStringLength} from './util.js';
 import './picture.js';
+import './form.js';
+import './validation.js';
 
 const ph = getPhotos(25);
 // eslint-disable-next-line
