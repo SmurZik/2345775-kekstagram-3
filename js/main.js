@@ -3,6 +3,8 @@ import {checkStringLength} from './util.js';
 import './picture.js';
 import './form.js';
 import './validation.js';
+import './scale.js';
+import './effect.js';
 
 const ph = getPhotos(25);
 // eslint-disable-next-line
