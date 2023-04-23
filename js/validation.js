@@ -1,3 +1,4 @@
+import { sendData } from './api.js';
 import {checkStringLength} from './util.js';
 
 const form = document.querySelector('.img-upload__form');
@@ -17,7 +18,8 @@ function validateComment(element) {
 }
 
 form.addEventListener('submit', (evt) => {
-  if (!pristine.validate()) {
-    evt.preventDefault();
+  evt.preventDefault();
+  if (pristine.validate()) {
+    sendData(evt);
   }
 });

@@ -1,3 +1,5 @@
+import { resetEffect } from './effect.js';
+
 const uploadPicture = document.querySelector('#upload-file');
 const cancelButton = document.querySelector('#upload-cancel');
 
@@ -6,13 +8,13 @@ uploadPicture.addEventListener('change', () => {
 });
 
 cancelButton.addEventListener('click', () => {
-  closeWindow();
+  closeWindow(true);
 });
 
 const closeOnButton = (evt) => {
   if (evt.key === 'Escape') {
     evt.preventDefault();
-    closeWindow();
+    closeWindow(true);
   }
 };
 
@@ -26,11 +28,17 @@ function cleanForm() {
   uploadPicture.value = '';
   document.querySelector('.text__hashtags').value = '';
   document.querySelector('.text__description').value = '';
+  resetEffect();
+  document.querySelector('.scale__control--value').value = '100%';
 }
 
-function closeWindow() {
+function closeWindow(clean) {
   document.querySelector('.img-upload__overlay').classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', closeOnButton);
-  cleanForm();
+  if (clean) {
+    cleanForm();
+  }
 }
+
+export {closeWindow};
