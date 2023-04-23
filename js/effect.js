@@ -2,6 +2,7 @@ const slider = document.querySelector('.effect-level__slider');
 const effectValue = document.querySelector('.effect-level__value');
 const preview = document.querySelector('.img-upload__preview');
 const effectButtons = document.querySelectorAll('.effects__radio');
+const sliderBackground = document.querySelector('.img-upload__effect-level');
 
 noUiSlider.create(slider, {
   start:[1],
@@ -11,6 +12,9 @@ noUiSlider.create(slider, {
   },
   step:0.1
 });
+
+slider.classList.add('hidden');
+sliderBackground.classList.add('hidden');
 
 function updateSlider(min, max, step) {
   slider.noUiSlider.updateOptions({
@@ -29,6 +33,8 @@ function addEffectHandler(button) {
     preview.classList.remove(`effects__preview--${currentEffect}`);
     preview.classList.add(`effects__preview--${button.value}`);
     currentEffect = button.value;
+    slider.classList.remove('hidden');
+    sliderBackground.classList.remove('hidden');
     switch (currentEffect) {
       case 'chrome':
         effectValue.value = 1;
@@ -57,6 +63,8 @@ function addEffectHandler(button) {
         break;
       case 'none':
         preview.style.filter = '';
+        slider.classList.add('hidden');
+        sliderBackground.classList.add('hidden');
         break;
     }
   });
@@ -86,3 +94,16 @@ slider.noUiSlider.on('slide', () => {
       break;
   }
 });
+
+function resetEffect() {
+  preview.classList.remove(`effects__preview--${currentEffect}`);
+  currentEffect = 'none';
+  preview.classList.add(`effects__preview--${currentEffect}`);
+  preview.style.filter = '';
+  preview.style.transform = `scale(${1})`;
+  slider.classList.add('hidden');
+  sliderBackground.classList.add('hidden');
+  document.querySelector('#effect-none').checked = true;
+}
+
+export {resetEffect};
